@@ -70,7 +70,7 @@ int eval(const std::string& pref) {
         }
         if (isdigit(c)) {
             int number = 0;
-            while (i < post.length() && isdigit(pref[i])) {
+            while (i < pref.length() && isdigit(pref[i])) {
                 number = number * 10 + (post[i] - '0');
                 ++i;
             }
