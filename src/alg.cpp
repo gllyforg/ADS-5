@@ -32,9 +32,9 @@ std::string infx2pstfx(const std::string& inf) {
             }
             result += ' ';
             --i;
-        }else if (c == '(') {
+        } else if (c == '(') {
             stack.push(c);
-        }else if (c == ')') {
+        } else if (c == ')') {
             while (!stack.isEmpty() && stack.top() != '(') {
                 result += stack.pop();
                 result += ' ';
@@ -42,7 +42,7 @@ std::string infx2pstfx(const std::string& inf) {
             if (!stack.isEmpty() && stack.top() == '(') {
                 stack.pop();
             }
-        }else if (isOperator(c)) {
+        } else if (isOperator(c)) {
             while (!stack.isEmpty() && stack.top() != '(' &&
                    getPriority(stack.top()) >= getPriority(c)) {
                 result += stack.pop();
@@ -64,19 +64,19 @@ std::string infx2pstfx(const std::string& inf) {
 int eval(const std::string& pref) {
   TStack<int, 100> stack;
     for (size_t i = 0; i < pref.length(); ++i) {
-        char c = post[i];
+        char c = pref[i];
         if (c == ' ') {
             continue;
         }
         if (isdigit(c)) {
             int number = 0;
-            while (i < post.length() && isdigit(post[i])) {
+            while (i < post.length() && isdigit(pref[i])) {
                 number = number * 10 + (post[i] - '0');
                 ++i;
             }
             stack.push(number);
             --i;
-        }else if (isOperator(c)) {
+        } else if (isOperator(c)) {
             int b = stack.pop();
             int a = stack.pop();
             int result = 0;
