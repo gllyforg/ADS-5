@@ -4,10 +4,10 @@
 
 template<typename T, int size>
 class TStack {
-private:
+ private:
     T data[size];
     int topIndex;
-public:
+ public:
     TStack() :topIndex(-1) {}
     bool isEmpty() const {
         return topIndex == -1;
